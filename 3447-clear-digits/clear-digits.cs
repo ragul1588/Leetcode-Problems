@@ -1,31 +1,19 @@
 public class Solution {
-public string ClearDigits(string s)
-{
-    string val = "";
-    int count = -1;
-    List<Char> li = new List<Char>();
-        foreach (Char a in s)
+    public string ClearDigits(string s)
+    {
+        Stack<char> stack = new Stack<char>();
+
+        foreach (char ch in s)
         {
-            li.Add(a);
-            count++;
-            if (Char.IsNumber(a))
+            if (char.IsDigit(ch) && stack.Count > 0)
             {
-                if (Char.IsLetterOrDigit(li[count - 1]) == true)
-                {
-                    li.RemoveAt(count);
-                    li.RemoveAt(count - 1);
-                    count = count - 2;
-                }
-                else {
-                    li.RemoveAt(count);
-                    count--;
-                }
+                stack.Pop();
+            }
+            else
+            {
+                stack.Push(ch);
             }
         }
-        foreach (Char a in li)
-        {
-            val += a;
-        }
-        return val;
+        return new string(stack.Reverse().ToArray());
     }
 }
