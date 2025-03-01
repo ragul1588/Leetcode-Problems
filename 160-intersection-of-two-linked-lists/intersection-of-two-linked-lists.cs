@@ -9,20 +9,48 @@
 public class Solution {
     public ListNode GetIntersectionNode(ListNode headA, ListNode headB) {
         
-        List<ListNode> li = new List<ListNode>();
-        while(headA !=null)
-        {
-          li.Add(headA);
-          headA = headA.next;
+        int t1 =0;
+        int t2 =0;
+        int size =0;
+        ListNode temp1 = headA;
+        ListNode temp2 = headB;
+        ListNode result = null;
+
+        while(temp1 !=null){
+            if(temp1 !=null){
+            t1++;
+            temp1 = temp1.next;
+           }
         }
-        while(headB !=null)
-        {
-          if(li.Contains(headB)){
-            return headB;
-          }
-          headB = headB.next;
+        
+        while(temp2 !=null){
+           if(temp2 !=null){
+            t2++;
+            temp2 = temp2.next;
+           }
         }
 
+        if(t1>t2){
+            result = collesion(headA, headB, t1-t2);
+        }
+        else{
+            result = collesion(headB, headA, t2-t1);
+        }
+        return result; 
+    }
+
+    public ListNode collesion(ListNode temp1, ListNode temp2, int k){
+        while(k>0){
+            temp1 = temp1.next;
+            k--;
+        }
+        while(temp1 !=null && temp2 !=null){
+            if(temp1 == temp2){
+                return temp1;
+            }
+            if(temp1 !=null) temp1 = temp1.next;
+            if(temp2 !=null) temp2 = temp2.next;
+        }
         return null;
     }
 }
