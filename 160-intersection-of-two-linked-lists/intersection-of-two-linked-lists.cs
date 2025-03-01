@@ -31,12 +31,11 @@ public class Solution {
         }
 
         if(t1>t2){
-            result = collesion(headA, headB, t1-t2);
+           return collesion(headA, headB, t1-t2);
         }
         else{
-            result = collesion(headB, headA, t2-t1);
+           return collesion(headB, headA, t2-t1);
         }
-        return result; 
     }
 
     public ListNode collesion(ListNode temp1, ListNode temp2, int k){
@@ -44,13 +43,10 @@ public class Solution {
             temp1 = temp1.next;
             k--;
         }
-        while(temp1 !=null && temp2 !=null){
-            if(temp1 == temp2){
-                return temp1;
-            }
-            if(temp1 !=null) temp1 = temp1.next;
-            if(temp2 !=null) temp2 = temp2.next;
+        while(temp1 != temp2){         
+           temp1 = temp1.next;
+           temp2 = temp2.next;
         }
-        return null;
+        return temp1;
     }
 }
