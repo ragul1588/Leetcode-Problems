@@ -2,7 +2,6 @@ public class Solution {
     public int MinimumRecolors(string blocks, int k) {
         int minNumber = Int32.MaxValue;
         int count = 0;
-        int numberOfTimes = 0;
         int val = blocks.Length-k;
         if(val==0){
            for(int i=0; i<blocks.Length; i++){
@@ -15,10 +14,8 @@ public class Solution {
 
         for(int i=0; i<blocks.Length-k+1; i++){
             count = 0;
-            numberOfTimes = 0;
-            for(int j=i; j<blocks.Length; j++){
-                 numberOfTimes++;
-               if(blocks[j]=='W' && numberOfTimes<=k){
+            for(int j=i; j<k+i; j++){
+               if(blocks[j]=='W'){
                 count++;
                }
             }
