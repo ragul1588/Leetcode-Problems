@@ -1,17 +1,16 @@
 public class Solution {
     public string RemoveOuterParentheses(string s) {
         int count = 0;
-        int n = s.Length;
         string result = "";
-        foreach(char a in s) {
-        if (a == ')') {
-            count--;
+        foreach (char c in s) {
+            if (c == '(') {
+                if (count > 0) result +=c;
+                count++;
+            } else {
+                count--;
+                if (count > 0) result +=c;
+            }
         }
-        if (count != 0) result += a;
-        if((a == '(')){
-            count++;
-        }
-    }
     return result;
     }
 }
