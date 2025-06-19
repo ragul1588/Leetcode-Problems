@@ -9,14 +9,17 @@ public class Solution {
         map['D']  = 500;
         map['M']  = 1000;
          
-         int n = s.Length;
-         int result = map[s[n-1]];
-        for(int i=n-2; i>=0; i--){
-            if(map[s[i]]<map[s[i+1]]){
-                result -=map[s[i]];
+        int result = 0;
+
+        for (int i = 0; i < s.Length - 1; i++) {
+            if (map[s[i]] < map[s[i + 1]]) {
+                result -= map[s[i]];
+            } else {
+                result += map[s[i]];
             }
-            else result +=map[s[i]];
         }
+
+        result += map[s[s.Length - 1]];
         return result;
     }
 }
