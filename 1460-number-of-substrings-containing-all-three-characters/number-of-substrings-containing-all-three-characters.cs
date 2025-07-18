@@ -1,17 +1,15 @@
 public class Solution {
     public int NumberOfSubstrings(string s) {
-     //Brute Force Solution
+     //Optimal Solution
          int count=0, n = s.Length;
+         int[] val = {-1,-1,-1};
         for(int i=0; i<n; i++){
-            int[] val = new int[3];
-           for(int j=i; j<n; j++){
-               val[s[j] - 'a'] = 1;
-              if(val[0] + val[1] + val[2] == 3){
-                 count = count + (n-j);
-                 break;
-            }
+            val[s[i] - 'a'] = i;
+
+           if(val[0]>-1 && val[1]>-1 && val[2]>-1) {
+               count +=(1+Math.Min(Math.Min(val[0], val[1]), val[2]));
+           }
          }
-     }
      return count;
     }
 }
