@@ -4,19 +4,18 @@ public class Solution {
         //Brute Force Solution
         if(s == null || s.Length == 0) return 0;
         if(s == " ") return 1;
-        var li = new List<char>();
+        int[] set = new int[256];
         int n = s.Length,maxLen =0;
         for(int i=0; i<n; i++){
-            li.Clear();
-             string result="";
+            set = new int[256];
             for(int j=i; j<n; j++){
-              if(li.Contains(s[j])){
+              if(set[s[j]]==1){
                 break;
               }
               else{
-                li.Add(s[j]);
-                result +=s[j];
-                maxLen = Math.Max(maxLen, result.Length);
+                set[s[j]]=1;
+                int Len = j-i+1;
+                maxLen = Math.Max(maxLen, Len);
               }
             }
         }
