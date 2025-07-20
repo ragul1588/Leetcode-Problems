@@ -1,6 +1,7 @@
 public class Solution {
     public int LengthOfLongestSubstring(string s) {
         
+        //Brute Force Solution
         if(s == null || s.Length == 0) return 0;
         if(s == " ") return 1;
         var li = new List<char>();
