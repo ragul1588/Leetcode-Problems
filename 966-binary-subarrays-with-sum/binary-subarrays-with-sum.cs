@@ -1,13 +1,23 @@
 public class Solution {
     public int NumSubarraysWithSum(int[] nums, int goal) {
-        int n = nums.Length, sum = 0, count=0;
+      var prefixCount = new Dictionary<int, int>();
+        prefixCount[0] = 1;  // to handle sum from index 0
+        int sum = 0, result = 0;
 
-        for (int i = 0; i < n; i++) {
-            sum = 0;
-            for (int j = i; j < n; j++) {
-                if ((sum += nums[j]) == goal) count++;
+        foreach (int num in nums) {
+            sum += num;
+
+            if (prefixCount.ContainsKey(sum - goal)) {
+                result += prefixCount[sum - goal];
             }
+
+            if (!prefixCount.ContainsKey(sum)) {
+                prefixCount[sum] = 0;
+            }
+
+            prefixCount[sum]++;
         }
-        return count;
+
+        return result;
     }
 }
