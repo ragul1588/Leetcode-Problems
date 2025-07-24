@@ -7,7 +7,7 @@ public class Solution {
            while(!s.StartsWith(prefix)){
               prefix = prefix.Substring(0,prefix.Length-1);
            }
-           if(prefix.Length == 0) return ""; 
+           if(prefix == "") return ""; 
          }
          
        return prefix;
