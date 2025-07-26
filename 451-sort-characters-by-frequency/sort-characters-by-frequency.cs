@@ -1,20 +1,31 @@
 public class Solution {
-    public string FrequencySort(string s) {
-       var freqMap = new Dictionary<char, int>();
-    foreach (char c in s) {
-        if (freqMap.ContainsKey(c)) {
-            freqMap[c]++;
-        } else {
-            freqMap[c] = 1;
+ public string FrequencySort(string s) {
+        
+        int[] characters = new int[128];
+        int n = s.Length;
+        char[] result = new char[n];
+        foreach(char a in s){
+            characters[a]++;
         }
-    }
-    var sorted = freqMap.OrderByDescending(kvp => kvp.Value);
-
-    var result = new StringBuilder();
-    foreach (var kvp in sorted) {
-        result.Append(new string(kvp.Key, kvp.Value));
-    }
-
-    return result.ToString();              
+        
+        int resultIndex = 0;
+        while(true){
+        int maxLen = 0;
+        char maxchar = ' ';
+            for(int i='0'; i<='z'; i++){
+                if(characters[i]>maxLen){
+                    maxLen = characters[i];
+                    maxchar = (char)i;
+                }
+            }
+            if(maxchar == ' ') break;
+           
+            for(int i=0; i<maxLen; i++){
+              result[resultIndex] = maxchar;
+              resultIndex++;
+            }
+             characters[maxchar] = 0;
+        }
+        return new string(result);
     }
 }
