@@ -11,7 +11,6 @@ public class Solution {
                while(j<n && t<m){
                     if(s[j] == s2[t]){
                       t++;
-                      if(t==m) break;
                     } 
                     j++;
                 }
