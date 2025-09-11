@@ -1,18 +1,19 @@
 public class Solution {
     public int MaxScore(int[] cardPoints, int k) {
         
-        int sum = 0, maxPoints = 0, n = cardPoints.Length;
+        int r =0, l=0, maxScore=0, n=cardPoints.Length;
+        
         for(int i=0; i<k; i++){
-           sum +=cardPoints[i]; 
+          maxScore +=cardPoints[i];
         }
-        maxPoints = Math.Max(maxPoints, sum);
-         int right = n-1;
+         int rightInd = n-1;
+         l=maxScore;
         for(int i=k-1; i>=0; i--){
-            sum -=cardPoints[i];
-            sum +=cardPoints[right];
-            right--;
-            maxPoints = Math.Max(maxPoints,sum);
+          l -=cardPoints[i];
+          r +=cardPoints[rightInd];
+          maxScore = Math.Max(maxScore,r+l); 
+          rightInd--;
         }
-        return maxPoints;
+        return maxScore;
     }
 }
