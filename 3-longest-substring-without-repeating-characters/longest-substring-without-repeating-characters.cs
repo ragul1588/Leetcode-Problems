@@ -3,7 +3,7 @@ public class Solution {
 
         //Optimal Solution
         if(s == null || s.Length == 0) return 0;
-        if(s == " ") return 1;
+        
         int left=0,maxLen=0,n=s.Length;
         var map = new Dictionary<char,int>();
          
@@ -16,5 +16,5 @@ public class Solution {
           maxLen = Math.Max(maxLen,(right-left+1));
         }
         return maxLen;
-    }
+    }  
 }
