@@ -2,8 +2,8 @@ public class Solution {
     public int LongestOnes(int[] nums, int k) {
          int left = 0, maxLen = 0,n=nums.Length,zeros=0;
       
-        for(int i=0; i<n; i++){
-          if(nums[i]==0){
+        for(int right=0; right<n; right++){
+          if(nums[right]==0){
             zeros++;
           }
 
@@ -14,7 +14,7 @@ public class Solution {
             left++;
           }
 
-          maxLen = Math.Max(maxLen, i-left+1);
+          maxLen = Math.Max(maxLen, right-left+1);
         }
         return maxLen;
     }
