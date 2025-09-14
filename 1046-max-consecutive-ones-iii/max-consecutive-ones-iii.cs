@@ -7,7 +7,7 @@ public class Solution {
             zeros++;
           }
 
-          while(zeros>k){
+          if(zeros>k){
             if(nums[left]==0){
                 zeros--;
             }
