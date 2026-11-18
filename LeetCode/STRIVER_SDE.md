@@ -3,7 +3,7 @@
 Track your progress on the Striver's SDE Sheet top interview problems.
 
 ## Progress
-- **Completed:** 1 / 76 (1.3%)
+- **Completed:** 2 / 76 (2.6%)
 
 ---
 
@@ -77,7 +77,7 @@ Track your progress on the Striver's SDE Sheet top interview problems.
 - [ ] Binary Tree Postorder Traversal
 - [ ] Binary Tree Level Order Traversal
 - [ ] Maximum Depth of Binary Tree
-- [ ] Diameter of Binary Tree
+- [x] [Diameter of Binary Tree](./C#/Easy/543. Diameter of Binary Tree/)
 - [ ] Balanced Binary Tree
 - [x] [Lowest Common Ancestor of a Binary Tree](./C#/Medium/236. Lowest Common Ancestor of a Binary Tree/)
 - [ ] Same Tree
